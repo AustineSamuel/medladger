@@ -1,0 +1,15 @@
+node_modules
+dist
+coverage
+.env
+.env.*
+!.env.example
+uploads
+var
+**/var
+*.enc
+contracts/artifacts
+contracts/cache
+contracts/typechain-types
+.DS_Store
+*.log

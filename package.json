@@ -1,0 +1,26 @@
+{
+  "name": "medledger",
+  "version": "0.1.0",
+  "private": true,
+  "workspaces": [
+    "backend",
+    "frontend",
+    "contracts"
+  ],
+  "scripts": {
+    "dev": "concurrently -k -n backend,frontend -c blue,green \"npm run dev --workspace @medledger/backend\" \"npm run dev --workspace @medledger/frontend\"",
+    "build": "npm run build --workspace @medledger/backend && npm run build --workspace @medledger/frontend && npm run build --workspace @medledger/contracts",
+    "typecheck": "npm run typecheck --workspace @medledger/backend && npm run typecheck --workspace @medledger/frontend && npm run typecheck --workspace @medledger/contracts",
+    "test": "npm run test --workspace @medledger/backend && npm run test --workspace @medledger/frontend && npm run test --workspace @medledger/contracts",
+    "db:migrate": "npm run db:migrate --workspace @medledger/backend",
+    "contracts:node": "npm run node --workspace @medledger/contracts",
+    "contracts:deploy:local": "npm run deploy:local --workspace @medledger/contracts"
+  },
+  "devDependencies": {
+    "concurrently": "^9.1.2",
+    "typescript": "^5.8.2"
+  },
+  "engines": {
+    "node": ">=22.13"
+  }
+}
